@@ -1,0 +1,41 @@
+<div class="docs-example-viewer-wrapper">
+    <div class="docs-example-viewer-title mat-elevation-z2">
+        <div class="docs-example-viewer-title-spacer">
+            <h2>Book Details</h2>
+        </div>
+    </div>
+    <div class="docs-example-viewer-body" *ngIf="BookDetails$ | async as book">
+        <div class="left-div">
+            <mat-card-content class="image-card">
+                <img class="preview-image" mat-card-image src="/assets/Upload/{{book.coverFileName}}.jpg" alt="No image available">
+            </mat-card-content>
+        </div>
+        <div class="right-div">
+            <table class="table">
+                <tr>
+                    <td><strong>Name</strong></td>
+                    <td>{{book.name}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Author</strong></td>
+                    <td>{{book.author}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Category</strong></td>
+                    <td>{{book.category}}</td>
+                </tr>
+                <tr>
+                    <td><strong>Purchase Price</strong></td>
+                    <td>{{book.purchasePrice | currency : 'ZAR '}}</td>
+                </tr>
+            </table>
+            <div fxLayoutGap="10px grid">
+                <app-addtocart class="mr-2" [bookId]="bookId"></app-addtocart>
+                <app-addtowishlist *ngIf="(userData$ | async).isLoggedIn" [bookId]="bookId" [showButton]="true">
+                </app-addtowishlist>
+                <!-- <app-addtobooksubscription *ngIf="(userData$ | async).isLoggedIn" [bookId]="bookId" [showButton]="true">
+                </app-addtobooksubscription> -->
+            </div>
+        </div>
+    </div>
+</div>

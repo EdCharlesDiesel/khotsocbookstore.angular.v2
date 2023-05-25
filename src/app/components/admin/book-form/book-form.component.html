@@ -1,0 +1,70 @@
+<div class="docs-example-viewer-wrapper">
+    <div class="docs-example-viewer-title mat-elevation-z2">
+        <div class="docs-example-viewer-title-spacer">
+            <h2>{{formTitle}} Book</h2>
+        </div>
+    </div>
+    <div class="docs-example-viewer-body">
+        <div class="left-div">
+            <mat-card class="mat-elevation-z2">
+                <mat-card-content>
+                    <form enctype="multipart/form-data" [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Name" formControlName="name" required>
+                            <mat-error *ngIf="name.touched && name.invalid">Name is required</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Author" formControlName="author" required>
+                            <mat-error *ngIf="author.touched && author.invalid">Author name is
+                                required</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Text" formControlName="text" required>
+                            <mat-error *ngIf="text.touched && text.invalid">Text is required</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <mat-select placeholder="Category" formControlName="category" required>
+                                <mat-option *ngFor="let category of categoryList" [value]="category.categoryName">
+                                    {{category.categoryName}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="category.touched && category.invalid">Category is required</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <input matInput placeholder="Purchase Price" formControlName="purchasePrice" type="number" required>
+                            <span matPrefix>ZAR &nbsp;</span>
+                            <mat-error *ngIf="purchasePrice.touched && purchasePrice.hasError('required')">Purchase Price is required</mat-error>
+                            <mat-error *ngIf="purchasePrice.touched && purchasePrice.hasError('min')">Purchase Price cannot be less than 0
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-card-actions >
+                            <div fxFlex></div>
+                            <button type="submit" mat-raised-button color="primary">SAVE</button>
+                            <button type="button" mat-raised-button color="warn" (click)="cancel()">CANCEL</button>
+                        </mat-card-actions>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="right-div">
+            <div class="docs-example-viewer-title">
+                <h5>Image Preview</h5>
+            </div>
+            <mat-card class="d-flex flex-column align-items-center mat-elevation-z2">
+                <mat-card-content class="image-card">
+                    <img class="preview-image" mat-card-image src={{coverImagePath}} alt="No image available">
+                </mat-card-content>
+                <mat-card-content>
+                    <div class="upload-btn-wrapper mat-elevation-z2">
+                        <button class="btn-upload" type="button" mat-raised-button>Upload image</button>
+                        <input type="file" (change)="uploadImage($event)" />
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
