@@ -21,8 +21,8 @@ export class ManageBooksComponent implements OnInit, OnDestroy {
 
   dataSource = new MatTableDataSource<Book>();
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator | undefined;
+  @ViewChild(MatSort, { static: true }) sort: MatSort | undefined;
 
   private unsubscribe$ = new Subject<void>();
   constructor(
@@ -33,8 +33,8 @@ export class ManageBooksComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getAllBookData();
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
 
   getAllBookData() {

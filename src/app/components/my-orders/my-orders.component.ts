@@ -23,7 +23,7 @@ export class MyOrdersComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = ['orderId', 'orderedOn', 'orderTotal'];
   dataSource = new MatTableDataSource<Order>();
-  expandedElement: null;
+  expandedElement: any;
   @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
 
     /*
@@ -33,11 +33,11 @@ export class MyOrdersComponent implements OnInit, OnDestroy {
     this.dataSource.paginator = mp;
   }
   userId;
-  isLoading: boolean;
+  isLoading: boolean = false;
   private unsubscribe$ = new Subject<void>();
 
   constructor(private orderService: MyordersService) {
-    
+
     this.userId= JSON.parse(localStorage.getItem('userId') || '{}');
   }
 
@@ -53,9 +53,9 @@ export class MyOrdersComponent implements OnInit, OnDestroy {
         if (result != null) {
           this.dataSource.data = Object.values(result);
           this.isLoading = false;
-          
+
         }
-        
+
       }, error => {
         console.log('Error ocurred while fetching my order details : ', error);
       });

@@ -1,16 +1,16 @@
 // import { BookSubscriptionService } from '../book-subscription/book-subscription.service';
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Order } from 'src/app/models/order';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CartService } from 'src/app/components/shoppingcart/cart.service';
-import { CheckoutService } from 'src/app/services/checkout.service';
-import { ShoppingCart } from 'src/app/components/shoppingcart/shoppingcart';
-import { SnackbarService } from 'src/app/services/snackbar.service';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { SubscriptionService } from 'src/app/services/subscription.service';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Order} from 'src/app/models/order';
+import {FormBuilder, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {CartService} from 'src/app/components/shoppingcart/cart.service';
+import {CheckoutService} from 'src/app/services/checkout.service';
+import {ShoppingCart} from 'src/app/components/shoppingcart/shoppingcart';
+import {SnackbarService} from 'src/app/services/snackbar.service';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {SubscriptionService} from 'src/app/services/subscription.service';
 
 @Component({
   selector: 'app-checkout',
@@ -20,15 +20,15 @@ import { SubscriptionService } from 'src/app/services/subscription.service';
 export class CheckoutComponent implements OnInit, OnDestroy {
 
   userId;
-   subCount:number;
-  totalPrice: number;
+  subCount: number= 0;
+  totalPrice: number = 0;
   checkOutItems = new Order();
   private unsubscribe$ = new Subject<void>();
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private cartService: CartService,    
+    private cartService: CartService,
     private checkOutService: CheckoutService,
     private snackBarService: SnackbarService,
     private subscriptionService: SubscriptionService) {
@@ -58,6 +58,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   get pincode() {
     return this.checkOutForm.get('pincode');
   }
+
   get state() {
     return this.checkOutForm.get('state');
   }
@@ -76,7 +77,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         }, error => {
           console.log('Error ocurred while fetching shopping cart item : ', error);
         });
-    
+
   }
 
   getTotalPrice() {
@@ -86,7 +87,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     });
     this.checkOutItems.cartTotal = this.totalPrice;
   }
-
 
 
   placeOrder() {
@@ -106,9 +106,9 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
 
-  addToSubscriberList():number{
+  addToSubscriberList(): number {
 
-  return this.subCount++;
+    return this.subCount++;
   };
 
 

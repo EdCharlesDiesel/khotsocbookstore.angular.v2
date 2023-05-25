@@ -13,9 +13,9 @@ import { SubscriptionService } from 'src/app/services/subscription.service';
   styleUrls: ['./book-subscription.component.scss']
 })
 export class BookSubscriptionComponent implements OnInit {
-  bookSubscriptionItems$: Observable<Book[]>;
-  isLoading: boolean;
-  userId;
+  bookSubscriptionItems$: Observable<Book[]>= new Observable<Book[]>();
+  isLoading: boolean = false;
+  userId: any;
   private unsubscribe$ = new Subject<void>();
 
   constructor(

@@ -12,7 +12,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class DeleteBookComponent implements OnInit {
 
-  bookData$: Observable<Book>;
+  bookData$: Observable<Book> = new Observable<Book>();
 
   constructor(
     public dialogRef: MatDialogRef<DeleteBookComponent>,
@@ -41,7 +41,7 @@ export class DeleteBookComponent implements OnInit {
   //     .pipe(
   //       catchError((error:any) => {
   //         console.log('Error ocurred while fetching book data : ', error)
-          
+
   //       }));
   // }
 }

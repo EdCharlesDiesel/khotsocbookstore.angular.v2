@@ -13,10 +13,10 @@ import { SubscriptionService } from 'src/app/services/subscription.service';
 export class BookCardComponent implements OnInit {
 
   @Input()
-  book: Book;
+  book: Book= new Book();
 
   isActive = false;
-  userData$: Observable<User>;
+  userData$: Observable<User> = new Observable<User>();
 
   constructor(private router: Router, private subscriptionService: SubscriptionService) { }
 

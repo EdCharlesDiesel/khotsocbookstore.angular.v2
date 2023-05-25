@@ -14,9 +14,9 @@ import { SubscriptionService } from 'src/app/services/subscription.service';
 })
 export class SearchComponent implements OnInit {
 
-  public books: Book[];
+  public books: Book[] = [];
   searchControl = new FormControl();
-  filteredBooks: Observable<Book[]>;
+  filteredBooks: Observable<Book[]> = new Observable<Book[]>();
 
   constructor(
     private bookService: BookService,
@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
     this.filterBookData();
   }
 
-  searchStore(event) {
+  public searchStore(event: any) {
     const searchItem = this.searchControl.value;
     if (searchItem !== '') {
       this.router.navigate(['/search'], {

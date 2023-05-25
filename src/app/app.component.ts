@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthenticationService} from "./services/authentication.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'khotsocbookstore.angular.v2';
+  constructor(private authService: AuthenticationService) {
+    if (!localStorage.getItem('authToken')) {
+      this.authService.setTempUserId();
+    }
+    this.authService.setUserDetails();
+  }
 }
