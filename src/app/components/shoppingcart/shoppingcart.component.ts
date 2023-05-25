@@ -6,10 +6,6 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 import { Observable } from 'rxjs';
-// import { select, Store } from '@ngrx/store';
-
-// import * as fromShoppingCart from './state/shoppingcart.selectors';
-// import * as shoppingCartActions from './state/shoppingcart.actions';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -17,14 +13,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./shoppingcart.component.scss']
 })
 export class ShoppingcartComponent implements OnInit, OnDestroy {
-  selectedShoppingCart$: Observable<ShoppingCart> | undefined;
-  shoppingCarts$: Observable<ShoppingCart[]> | undefined;
-  errorMessage$: Observable<string> | undefined;
-
-
-
-
-  public cartItems: ShoppingCart[];
+  public cartItems: ShoppingCart[] = [];
   userId;
   totalPrice: number;
   private unsubscribe$ = new Subject<void>();

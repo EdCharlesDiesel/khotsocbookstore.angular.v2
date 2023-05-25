@@ -15,32 +15,32 @@
                     <form [formGroup]="checkOutForm" (ngSubmit)="placeOrder()">
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Name" formControlName="name" required>
-                            <mat-error *ngIf="name.touched && name.invalid">Name is required</mat-error>
+                            <mat-error *ngIf="name?.touched && name?.invalid">Name is required</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Address Line 1" formControlName="addressLine1" required>
-                            <mat-error *ngIf="addressLine1.touched && addressLine1.invalid">Address is required
+                            <mat-error *ngIf="addressLine1?.touched && addressLine1?.invalid">Address is required
                             </mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Address Line 2" formControlName="addressLine2" required>
-                            <mat-error *ngIf="addressLine2.touched && addressLine2.invalid">Address is required
+                            <mat-error *ngIf="addressLine2?.touched && addressLine2?.invalid">Address is required
                             </mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Pincode" formControlName="pincode" required>
-                            <mat-error *ngIf="pincode.touched && pincode.hasError('required')">Pincode is required
+                            <mat-error *ngIf="pincode?.touched && pincode?.hasError('required')">Pincode is required
                             </mat-error>
-                            <mat-error *ngIf="pincode.touched && pincode.hasError('pattern')">
+                            <mat-error *ngIf="pincode?.touched && pincode?.hasError('pattern')">
                                 Pincode must have 6 digits only and cannot start with 0
                             </mat-error>
                         </mat-form-field>
                         <mat-form-field class="full-width">
                             <input matInput placeholder="State" formControlName="state" required>
-                            <mat-error *ngIf="state.touched && state.invalid">State is required</mat-error>
+                            <mat-error *ngIf="state?.touched && state?.invalid">State is required</mat-error>
                         </mat-form-field>
                         <mat-card-actions >
                             <div fxFlex></div>

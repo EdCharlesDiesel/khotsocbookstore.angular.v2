@@ -13,7 +13,7 @@ import {BookService} from "../../services/book.service";
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  public books: Book[] | undefined;
+  public books: Book[] = [];
   public filteredProducts: Book[] =[]
   category: string='';
   priceRange = Number.MAX_SAFE_INTEGER;
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  private filterPrice(value: number): any {
+  public filterPrice(value: number): any {
     this.priceRange = value;
     this.filterBookData();
   }

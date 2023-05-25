@@ -13,9 +13,9 @@ export class PriceFilterComponent implements OnInit {
   @Output()
   priceValue = new EventEmitter<number>(true);
 
-  max: number;
-  min: number;
-  value: number;
+  max: number =0;
+  min: number=0;
+  value: number=0;
   step = 100;
   thumbLabel = true;
 
@@ -41,17 +41,17 @@ export class PriceFilterComponent implements OnInit {
     return value;
   }
 
-  onChange(event) {
+  onChange(event: any) {
     this.priceValue.emit(event.value);
   }
 
-  setMinValue(book: Book[]) {
+  public setMinValue(book: Book[]) {
     this.min = book.reduce((prev, curr) => {
       return prev.purchasePrice < curr.purchasePrice ? prev : curr;
     }).purchasePrice;
   }
 
-  setMaxValue(book: Book[]) {
+  public setMaxValue(book: Book[]) {
     this.value = this.max = book.reduce((prev, curr) => {
       return prev.purchasePrice > curr.purchasePrice ? prev : curr;
     }).purchasePrice;

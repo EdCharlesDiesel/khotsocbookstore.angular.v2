@@ -15,11 +15,11 @@ import { Categories } from 'src/app/models/categories';
 export class BookFilterComponent implements OnInit {
 
   @Input()
-  category: string;
+  category: string ='';
 
-  categories$: Observable<Categories[]>;
+  categories$: Observable<Categories[]>= new Observable<Categories[]>();
 
-  constructor(private bookService: BookService,   
+  constructor(private bookService: BookService,
     //private store: Store<frombookFilter.State>,
     ) { }
 

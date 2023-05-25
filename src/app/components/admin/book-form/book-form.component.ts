@@ -20,7 +20,7 @@ export class BookFormComponent implements OnInit, OnDestroy {
   coverImagePath: any;
   bookId = 0;
   files = '';
-  categoryList: any [];
+  categoryList: any []= [];
   private unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -28,7 +28,7 @@ export class BookFormComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private fb: FormBuilder,
     private router: Router) {
-    this.formData  = new FormData();  
+    this.formData  = new FormData();
     this.book = new Book();
     this.bookForm = this.fb.group({
       bookId: 0,
@@ -72,8 +72,8 @@ export class BookFormComponent implements OnInit, OnDestroy {
 
     this.route.params.subscribe(
       params => {
-        if (params.id) {
-          this.bookId = +params.id;
+        if (params['id']) {
+          this.bookId = +params['id'];
           this.fetchBookData();
         }
       }

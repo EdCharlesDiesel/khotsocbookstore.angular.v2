@@ -14,9 +14,9 @@ import { SubscriptionService } from 'src/app/services/subscription.service';
 })
 export class BookDetailsComponent implements OnInit {
 
-  bookId;
-  BookDetails$: Observable<Book>;
-  userData$: Observable<User>;
+  bookId = 0;
+  BookDetails$: Observable<Book>= new Observable<Book>();
+  userData$: Observable<User>= new Observable<User>()
 
   constructor(
     private bookService: BookService,
@@ -29,19 +29,20 @@ export class BookDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        this.bookId = +params.id;
+        this.bookId = +params['id'];
         this.getBookDetails();
       }
     );
     this.userData$ = this.subscriptionService.userData;
   }
 
-  getBookDetails() {
-    this.BookDetails$ = this.bookService.getBookById(this.bookId)
-      .pipe(
-        catchError(error => {
-          console.log('Error ocurred while fetching book data : ', error);
-          return EMPTY;
-        }));
+ public getBookDetails() {
+    //TODO need to fix this
+    //this.BookDetails$ = this.bookService.getBookById(this.bookId);
+      // .pipe(
+      //   catchError(error => {
+      //     console.log('Error ocurred while fetching book data : ', error);
+      //     return EMPTY;
+      //   }));
   }
 }

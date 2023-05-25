@@ -31,9 +31,9 @@ export class BookService {
   }
 
 
-  getBookById(id: number) {
+  public getBookById(id: any) {
     return this.books$.pipe(map(book => book.find(b => b.bookId === id)));
-  } 
+  }
 
   updateBookDetails(book:Book) {
     return this.http.put(this.baseURL, book);

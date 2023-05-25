@@ -31,8 +31,8 @@
             </table>
             <div fxLayoutGap="10px grid">
                 <app-addtocart class="mr-2" [bookId]="bookId"></app-addtocart>
-                <app-addtowishlist *ngIf="(userData$ | async).isLoggedIn" [bookId]="bookId" [showButton]="true">
-                </app-addtowishlist>
+<!--                <app-addtowishlist *ngIf="(userData$ | async).isLoggedIn" [bookId]="bookId" [showButton]="true">
+                </app-addtowishlist>-->
                 <!-- <app-addtobooksubscription *ngIf="(userData$ | async).isLoggedIn" [bookId]="bookId" [showButton]="true">
                 </app-addtobooksubscription> -->
             </div>

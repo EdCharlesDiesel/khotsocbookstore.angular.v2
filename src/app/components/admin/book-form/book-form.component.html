@@ -11,18 +11,18 @@
                     <form enctype="multipart/form-data" [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Name" formControlName="name" required>
-                            <mat-error *ngIf="name.touched && name.invalid">Name is required</mat-error>
+                            <mat-error *ngIf="name?.touched && name?.invalid">Name is required</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Author" formControlName="author" required>
-                            <mat-error *ngIf="author.touched && author.invalid">Author name is
+                            <mat-error *ngIf="author?.touched && author?.invalid">Author name is
                                 required</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Text" formControlName="text" required>
-                            <mat-error *ngIf="text.touched && text.invalid">Text is required</mat-error>
+                            <mat-error *ngIf="text?.touched && text?.invalid">Text is required</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
@@ -31,14 +31,14 @@
                                     {{category.categoryName}}
                                 </mat-option>
                             </mat-select>
-                            <mat-error *ngIf="category.touched && category.invalid">Category is required</mat-error>
+                            <mat-error *ngIf="category?.touched && category?.invalid">Category is required</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="full-width">
                             <input matInput placeholder="Purchase Price" formControlName="purchasePrice" type="number" required>
                             <span matPrefix>ZAR &nbsp;</span>
-                            <mat-error *ngIf="purchasePrice.touched && purchasePrice.hasError('required')">Purchase Price is required</mat-error>
-                            <mat-error *ngIf="purchasePrice.touched && purchasePrice.hasError('min')">Purchase Price cannot be less than 0
+                            <mat-error *ngIf="purchasePrice?.touched && purchasePrice?.hasError('required')">Purchase Price is required</mat-error>
+                            <mat-error *ngIf="purchasePrice?.touched && purchasePrice?.hasError('min')">Purchase Price cannot be less than 0
                             </mat-error>
                         </mat-form-field>
                         <mat-card-actions >

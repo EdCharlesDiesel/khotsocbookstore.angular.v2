@@ -11,9 +11,9 @@ import { SubscriptionService } from 'src/app/services/subscription.service';
 export class AddtocartComponent {
 
   @Input()
-  bookId: number;
+  bookId: number = 0;
 
-  userId;
+  userId: any;
 
   constructor(
     private cartService: CartService,

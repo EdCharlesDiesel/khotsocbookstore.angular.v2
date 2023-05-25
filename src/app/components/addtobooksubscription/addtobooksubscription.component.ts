@@ -12,7 +12,7 @@ import { OnChanges } from '@angular/core';
 })
 export class AddtobooksubscriptionComponent implements OnChanges {
 
-  @Input() bookId: number;
+  @Input() bookId: any;
 
   @Input() showButton = false;
 
@@ -26,17 +26,17 @@ export class AddtobooksubscriptionComponent implements OnChanges {
     private subscriptionService: SubscriptionService,
     private snackBarService: SnackbarService) {
     this.userId = JSON.parse(localStorage.getItem('userId')||'{}') ;
-    
+
   }
 
   ngOnChanges() {
-    this.subscriptionService.bookSubscriptionItem$    
+    this.subscriptionService.bookSubscriptionItem$
     .pipe().subscribe(
-      (bookData: Book[]) => {        
+      (bookData: Book[]) => {
         this.setButtonText();
       });
   }
- 
+
 
   setButtonText() {
     if (this.toggle) {
