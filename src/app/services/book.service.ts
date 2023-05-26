@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { shareReplay, map } from 'rxjs/operators';
 import { Book } from '../models/book';
 import { Categories } from '../models/categories';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  baseURL = 'https://localhost:5000/api/book/';
+  baseURL = environment.baseURL + "books";
 
   constructor(private http: HttpClient) { }
 
@@ -32,7 +33,7 @@ export class BookService {
 
 
   public getBookById(id: any) {
-    return this.books$.pipe(map(book => book.find(b => b.bookId === id)));
+    return this.books$.pipe(map(book => book.find(b => b.id === id)));
   }
 
   updateBookDetails(book:Book) {

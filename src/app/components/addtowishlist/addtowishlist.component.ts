@@ -12,7 +12,7 @@ import { Book } from 'src/app/models/book';
 export class AddtowishlistComponent implements OnChanges {
 
   @Input()
-  bookId!: number;
+  bookId!: string;
 
   @Input()
   showButton = false;
@@ -39,7 +39,7 @@ export class AddtowishlistComponent implements OnChanges {
   }
 
   setFavourite(bookData: Book[]) {
-    const favBook = bookData.find(f => f.bookId === this.bookId);
+    const favBook = bookData.find(f => f.id === this.bookId);
 
     if (favBook) {
       this.toggle = true;

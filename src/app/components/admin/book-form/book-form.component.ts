@@ -139,12 +139,12 @@ export class BookFormComponent implements OnInit, OnDestroy {
 
   setBookFormData(bookFormData: Book) {
     this.bookForm.setValue({
-      bookId: bookFormData.bookId,
-      name: bookFormData.name,
-      text: bookFormData.text,
-      author: bookFormData.author,
-      category: bookFormData.category,
-      purchasePrice: bookFormData.purchasePrice
+      id: bookFormData.id,
+      title: bookFormData.title,
+      publishedDate: bookFormData.publishedDate,
+      retailPrice: bookFormData.retailPrice,
+      coverFileName: bookFormData.coverFileName,
+      cost: bookFormData.cost
     });
     this.coverImagePath = '/Upload/' + bookFormData.coverFileName;
   }

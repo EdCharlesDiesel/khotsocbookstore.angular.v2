@@ -70,7 +70,9 @@ export class SearchComponent implements OnInit {
 
   private _filter(value: string) {
     const filterValue = value.toLowerCase();
-    return this.books?.filter(option => option.name.toLowerCase().includes(filterValue)
-      || option.author.toLowerCase().includes(filterValue));
+    return this.books?.filter(option => option?.title?.toLowerCase().includes(filterValue));
+      //FIXME fix authors from the back end and come back.
+      //|| option.author.toLowerCase().includes(filterValue));
+
   }
 }
