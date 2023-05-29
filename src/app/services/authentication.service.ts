@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { SubscriptionService } from './subscription.service';
 import {environment} from "../../environments/environment";
-import {BehaviorSubject, Observable} from "rxjs";
+import {User} from "../components/user-login/user";
+import {Book} from "../components/book/book";
 
 export interface ApplicationUser {
   accessToken: string;
@@ -43,7 +43,7 @@ export class AuthenticationService {
 
   public setUserDetails():void {
     if (localStorage.getItem('authToken')) {
-      const userDetails = new User();
+      const userDetails = new User() ;
       const decodeUserDetails = JSON.parse(atob(localStorage.getItem('authToken')!.split('.')[1]));
 
       userDetails.userId = decodeUserDetails.userid;
@@ -51,7 +51,7 @@ export class AuthenticationService {
       userDetails.userTypeId = Number(decodeUserDetails.userTypeId);
       userDetails.isLoggedIn = true;
 
-      this.subscriptionService.userData.next(userDetails);
+    //  this.subscriptionService.userData.next(userDetails);
     }
   }
 
@@ -73,7 +73,7 @@ export class AuthenticationService {
   }
 
   public  resetSubscription() : void {
-    this.subscriptionService.userData.next(new User());
+    this.subscriptionService.userData.next(new Book());
     //FIXME need to include wishlist items.
     //this.subscriptionService.wishlistItem$.next([]);
     this.subscriptionService.wishlistItemcount$.next(0);

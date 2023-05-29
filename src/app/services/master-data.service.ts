@@ -46,7 +46,7 @@
 //      */
 //     login(body: UserMaster | undefined): Observable<void>;
 //     /**
-//      * Get the list of all the orders placed by a particular user
+//      * Get the list of all the orders placed by a particular user-login
 //      */
 //     order(userId: number): Observable<void>;
 //     /**
@@ -70,7 +70,7 @@
 //      */
 //     userGet(userId: number): Observable<void>;
 //     /**
-//      * Register a new user
+//      * Register a new user-login
 //      * @param body (optional)
 //      */
 //     userPost(body: UserMaster | undefined): Observable<void>;
@@ -326,7 +326,7 @@
 //     }
 //
 //     /**
-//      * Get the list of all the orders placed by a particular user
+//      * Get the list of all the orders placed by a particular user-login
 //      */
 //     order(userId: number): Observable<void> {
 //         let url_ = this.baseUrl + "/api/Order/{userId}";
@@ -544,7 +544,7 @@
 //     }
 //
 //     /**
-//      * Register a new user
+//      * Register a new user-login
 //      * @param body (optional)
 //      */
 //     userPost(body: UserMaster | undefined): Observable<void> {
@@ -831,7 +831,7 @@
 //
 // interface IShoppingCartClient {
 //     /**
-//      * Get the shopping cart for a user upon Login. If the user logs in for the first time, creates the shopping cart.
+//      * Get the shopping cart for a user-login upon Login. If the user-login logs in for the first time, creates the shopping cart.
 //      */
 //     setShoppingCart(oldUserId: number, newUserId: number): Observable<void>;
 //     /**
@@ -852,7 +852,7 @@
 //     }
 //
 //     /**
-//      * Get the shopping cart for a user upon Login. If the user logs in for the first time, creates the shopping cart.
+//      * Get the shopping cart for a user-login upon Login. If the user-login logs in for the first time, creates the shopping cart.
 //      */
 //     setShoppingCart(oldUserId: number, newUserId: number): Observable<void> {
 //         let url_ = this.baseUrl + "/api/ShoppingCart/SetShoppingCart/{oldUserId}/{newUserId}";

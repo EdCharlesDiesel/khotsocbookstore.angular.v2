@@ -1,6 +1,6 @@
 import { SnackbarService } from './../../services/snackbar.service';
 import { SubscriptionService } from 'src/app/services/subscription.service';
-import { Book } from './../../models/book';
+import { Book } from '../book/book';
 import { Component, Input, OnInit } from '@angular/core';
 import { BookSubscriptionService } from 'src/app/services/book-subscription.service';
 import { OnChanges } from '@angular/core';
@@ -12,9 +12,9 @@ import { OnChanges } from '@angular/core';
 })
 export class AddtobooksubscriptionComponent implements OnChanges {
 
-  @Input() bookId: any;
+  @Input() bookId?: any;
 
-  @Input() showButton = false;
+  @Input() showButton?:boolean;
 
   userId;
   toggle: boolean = false;

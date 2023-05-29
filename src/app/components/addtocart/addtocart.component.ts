@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CartService } from 'src/app/components/shoppingcart/cart.service';
+import { CartService } from 'src/app/services/cart.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 

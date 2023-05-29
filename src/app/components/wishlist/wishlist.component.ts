@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Book } from 'src/app/models/book';
+import { Book } from 'src/app/components/book/book';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 import { Observable, Subject } from 'rxjs';
 import { WishlistService } from 'src/app/services/wishlist.service';

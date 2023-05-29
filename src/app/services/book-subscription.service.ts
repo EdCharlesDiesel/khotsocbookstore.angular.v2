@@ -5,24 +5,25 @@ import { of } from 'rxjs';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { BookSubscription } from '../models/booksubscription';
+import { BookSubscription } from '../components/book/booksubscription';
 import { SubscriptionService } from './subscription.service';
-import { Book } from '../models/book';
+import { Book } from '../components/book/book';
+import {environment} from "../../environments/environment";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookSubscriptionService {
-  
-  baseURL: string;
+
+  baseURL = environment.baseURL + "bookSubscription";
 
   constructor(private http: HttpClient,
               private subscriptionService: SubscriptionService) {
-              this.baseURL = 'https://localhost:5000/api/bookSubscription/';
+
   }
 
- 
+
 
   toggleBookSubscriptionItem(userId: number, bookId: number) {
     return this.http.post<Book[]>(this.baseURL + `ToggleBookSubscription/${userId}/${bookId}`, {})

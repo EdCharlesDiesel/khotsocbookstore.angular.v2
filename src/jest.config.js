@@ -1,0 +1,17 @@
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+module.exports = {
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tsconfig.spec.json',
+      isolatedModules: true,
+    },
+  },
+  moduleNameMapper: {
+    '@angular/compiler-cli/ngcc': '<rootDir>/node_modules/@angular/compiler-cli/bundles/ngcc/main-ngcc.js',
+  },
+  testEnvironment: 'jsdom',
+  modulePathIgnorePatterns: ['examples/.*', 'website/.*'],
+  snapshotSerializers: [require.resolve('jest-snapshot-serializer-raw')],
+  testPathIgnorePatterns: ['/node_modules/', '/examples/', '/e2e/.*/__tests__', '\\.snap']
+}
+

@@ -1,6 +1,17 @@
-import { TestBed } from '@angular/core/testing';
+ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+ import { AppComponent } from './app.component';
+
+// import 'jest-preset-angular/setup-jest';
+import { getTestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+
+getTestBed().resetTestEnvironment();
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting(),
+  { teardown: { destroyAfterEach: true } }, // 👈
+);
 
 describe('AppComponent', () => {
   beforeEach(async () => {

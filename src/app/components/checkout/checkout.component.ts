@@ -1,10 +1,10 @@
 // import { BookSubscriptionService } from '../book-subscription/book-subscription.service';
 
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Order} from 'src/app/models/order';
+import {Order} from 'src/app/components/my-orders/order';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {CartService} from 'src/app/components/shoppingcart/cart.service';
+import {CartService} from 'src/app/services/cart.service';
 import {CheckoutService} from 'src/app/services/checkout.service';
 import {ShoppingCart} from 'src/app/components/shoppingcart/shoppingcart';
 import {SnackbarService} from 'src/app/services/snackbar.service';

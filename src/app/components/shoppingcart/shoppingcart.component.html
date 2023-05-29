@@ -45,36 +45,38 @@
 <!--                                src="/assets/Upload/{{item.book.coverFileName}}.jpg">-->
                         </td>
                         <td>
-<!--                          <a [routerLink]="['/books/details/',item.book.bookId]">{{item.book.name}}</a>-->
+<!--                          <a [routerLink]="['/books/details/',item.book.id]">{{item.book?.title}}</a>-->
                         </td>
                         <td>
-<!--                          {{ item.book.purchasePrice | currency : 'ZAR ' }}-->
+<!--                          {{ item.book.retailPrice | currency : 'ZAR ' }}-->
                         </td>
                         <td>
                             <div class="btn-container">
                                 <div class="btn-minus">
-<!--                                  <button [disabled]="item.quantity < 2 ? true : false"-->
-<!--                                        mat-icon-button color="warn" (click)="deleteOneCartItem(item.book.bookId)">-->
+<!--                                  <button [disabled]="item?.quantity < 2 ? true : false"-->
+<!--                                        mat-icon-button color="warn" (click)="deleteOneCartItem(item.book?.id)">-->
 <!--                                        <mat-icon>remove_circle</mat-icon>-->
 <!--                                    </button>-->
                                 </div>
                                 <div class="div-quantity">{{item.quantity}}</div>
                                 <div class="btn-plus">
-<!--                                  <button mat-icon-button color="warn"-->
-<!--                                        (click)="addToCart(item.book.bookId)">-->
-<!--                                        <mat-icon>add_circle</mat-icon>-->
-<!--                                    </button>-->
+                                  <button mat-icon-button color="warn"
+                                        (click)="addToCart(item.book?.id)">
+                                        <mat-icon>add_circle</mat-icon>
+                                    </button>
                                 </div>
                             </div>
                         </td>
                         <td>
-<!--                          {{ item.book.purchasePrice * item.quantity | currency : 'ZAR '}}-->
+<!--                          {{ (item?.book?.retailPrice ?? 0)* (item!.quantity)  | currency : 'ZAR '}}-->
+
+
                         </td>
                         <td>
-<!--                          <button mat-icon-button color="accent" matTooltip="Delete item"-->
-<!--                                (click)="deleteCartItem(item.book?.bookId)">-->
-<!--                                <mat-icon>delete</mat-icon>-->
-<!--                            </button>-->
+                          <button mat-icon-button color="accent" matTooltip="Delete item"
+                                (click)="deleteCartItem(item.book?.id)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
 
                         </td>
                     </mat-card-content>

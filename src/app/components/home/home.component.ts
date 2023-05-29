@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Book } from 'src/app/models/book';
+import { Book } from 'src/app/components/book/book';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { SubscriptionService } from 'src/app/services/subscription.service';
@@ -14,7 +14,7 @@ import {BookService} from "../../services/book.service";
 export class HomeComponent implements OnInit, OnDestroy {
 
   public books: Book[] = [];
-  public filteredProducts: Book[] =[]
+  public filteredProducts: Book[] = []
   category: string='';
   priceRange = Number.MAX_SAFE_INTEGER;
   isLoading: boolean | undefined;

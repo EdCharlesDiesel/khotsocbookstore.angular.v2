@@ -9,15 +9,15 @@ import {NgMaterialModule} from "./ng-material.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {HomeComponent} from "./components/home/home.component";
-import {BookCardComponent} from "./components/book-card/book-card.component";
-import {BookDetailsComponent} from "./components/book-details/book-details.component";
+import {BookCardComponent} from "./components/book/book-card/book-card.component";
+import {BookDetailsComponent} from "./components/book/book-details/book-details.component";
 import {ThemePickerComponent} from "./components/theme-picker/theme-picker.component";
 import {AddtowishlistComponent} from "./components/addtowishlist/addtowishlist.component";
-import {BookFilterComponent} from "./components/book-filter/book-filter.component";
+import {BookFilterComponent} from "./components/book/book-filter/book-filter.component";
 import {UserRegistrationComponent} from "./components/user-registration/user-registration.component";
-import {LoginComponent} from "./components/user/login.component";
+import {LoginComponent} from "./components/user-login/login.component";
 import {PriceFilterComponent} from "./components/price-filter/price-filter.component";
-import {BookSubscriptionComponent} from "./components/book-subscription/book-subscription.component";
+import {BookSubscriptionComponent} from "./components/book/book-subscription/book-subscription.component";
 import {SimilarbooksComponent} from "./components/similarbooks/similarbooks.component";
 import {AddtocartComponent} from "./components/addtocart/addtocart.component";
 import {CheckoutComponent} from "./components/checkout/checkout.component";
@@ -50,7 +50,9 @@ import {PageNotFoundComponent} from "./components/page-not-found/page-not-found.
     AddtowishlistComponent,
     WishlistComponent,
     BookSubscriptionComponent,
-    AddtobooksubscriptionComponent
+    AddtobooksubscriptionComponent,
+
+
   ],
   imports: [
     NgMaterialModule,

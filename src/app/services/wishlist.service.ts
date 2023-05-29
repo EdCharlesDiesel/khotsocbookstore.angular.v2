@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Book } from '../models/book';
+import { Book } from '../components/book/book';
 import { SubscriptionService } from './subscription.service';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishlistService {
 
-  baseURL: string;
+  baseURL = environment.baseURL + "Wishlist";
 
   constructor(
     private http: HttpClient,
     private subscriptionService: SubscriptionService) {
-    this.baseURL = 'https://localhost:5000/api/Wishlist/';
+
   }
 
   toggleWishlistItem(userId: number, bookId: any) {

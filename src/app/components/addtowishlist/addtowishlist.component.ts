@@ -2,7 +2,7 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { WishlistService } from 'src/app/services/wishlist.service';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { Book } from 'src/app/models/book';
+import { Book } from 'src/app/components/book/book';
 
 @Component({
   selector: 'app-addtowishlist',
@@ -12,7 +12,7 @@ import { Book } from 'src/app/models/book';
 export class AddtowishlistComponent implements OnChanges {
 
   @Input()
-  bookId!: string;
+  bookId?: string;
 
   @Input()
   showButton = false;

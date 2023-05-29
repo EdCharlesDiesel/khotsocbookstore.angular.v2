@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BookService } from 'src/app/services/book.service';
-import { Book } from 'src/app/models/book';
+import { Book } from 'src/app/components/book/book';
 
 @Component({
   selector: 'app-price-filter',

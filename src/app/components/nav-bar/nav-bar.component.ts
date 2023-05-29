@@ -2,9 +2,9 @@ import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 import {AuthenticationService} from "../../services/authentication.service";
-import {UserType} from "../../models/usertype";
 import {SubscriptionService} from "../../services/subscription.service";
 import {UserService} from "../../services/user.service";
+import {UserType} from "../user-login/usertype";
 
 
 @Component({

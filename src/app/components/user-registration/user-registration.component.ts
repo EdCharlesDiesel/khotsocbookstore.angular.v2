@@ -8,13 +8,13 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-user-registration',
+  selector: 'app-user-login-registration',
   templateUrl: './user-registration.component.html',
   styleUrls: ['./user-registration.component.scss']
 })
 export class UserRegistrationComponent implements OnDestroy {
 
-  
+
   showPassword = true;
   showConfirmPassword = true;
   private unsubscribe$ = new Subject<void>();
@@ -59,7 +59,7 @@ export class UserRegistrationComponent implements OnDestroy {
   get password() {
     return this.registrationForm.get('password');
   }
-  
+
   get confirmPassword() {
     return this.registrationForm.get('confirmPassword');
   }

@@ -1,18 +1,18 @@
-import { BookSubscriptionComponent } from './components/book-subscription/book-subscription.component';
+import { BookSubscriptionComponent } from './components/book/book-subscription/book-subscription.component';
 
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/user/login.component';
+import { LoginComponent } from './components/user-login/login.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
-import { AuthGuard } from './guards/auth.guard';
-import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { BookDetailsComponent } from './components/book/book-details/book-details.component';
 import { ShoppingcartComponent } from './components/shoppingcart/shoppingcart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
-import { AdminAuthGuard } from './guards/admin-auth.guard';
+import { AdminAuthGuard } from './shared/guards/admin-auth.guard';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 const appRoutes: Routes = [

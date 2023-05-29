@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
-import { SiteTheme } from 'src/app/models/customtheme';
+import { SiteTheme } from 'src/app/components/theme-picker/customtheme';
 import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { BookService } from 'src/app/services/book.service';
-import { Book } from 'src/app/models/book';
+import { Book } from 'src/app/components/book/book';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SubscriptionService } from 'src/app/services/subscription.service';

@@ -45,10 +45,10 @@
               <td><a [routerLink]="['/books/details/',item.id]">{{item.title}}</a></td>
               <td>{{ item.retailPrice | currency : 'ZAR ' }}</td>
               <td>
-<!--                <app-addtocart [bookId]="item.bookId"></app-addtocart>-->
+                <app-addtocart [bookId]="item.id"></app-addtocart>
               </td>
               <td>
-<!--                <app-addtowishlist [bookId]="item?.bookId" [showButton]="true"></app-addtowishlist>-->
+                <app-addtowishlist [bookId]="item.id" [showButton]="true"></app-addtowishlist>
               </td>
             </mat-card-content>
           </tr>

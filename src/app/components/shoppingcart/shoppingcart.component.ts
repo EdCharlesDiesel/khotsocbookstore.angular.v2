@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ShoppingCart } from 'src/app/components/shoppingcart/shoppingcart';
-import { CartService } from 'src/app/components/shoppingcart/cart.service';
+import { CartService } from 'src/app/services/cart.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./shoppingcart.component.scss']
 })
 export class ShoppingcartComponent implements OnInit, OnDestroy {
-  public cartItems: ShoppingCart[] = [];
+  cartItems: ShoppingCart[];
   userId;
   totalPrice: number;
   private unsubscribe$ = new Subject<void>();
@@ -56,12 +56,12 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
     // });
   }
 
-  public deleteCartItem(bookId: number) {
+  public deleteCartItem(bookId: any) {
     this.cartService.removeCartItems(this.userId, bookId)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         result => {
-          this.subscriptionService.cartItemcount$.next(result);
+          this.subscriptionService.cartItemcount$.next(+result);
           this.snackBarService.showSnackBar('Product removed from cart');
           this.getShoppingCartItems();
         }, error => {
@@ -69,7 +69,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
         });
   }
 
-  public addToCart(bookId: number) {
+  public addToCart(bookId: any) {
     this.cartService.addBookToCart(this.userId, bookId)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
@@ -78,16 +78,16 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
           this.snackBarService.showSnackBar('One item added to cart');
           this.getShoppingCartItems();
         }, error => {
-          console.log('Error ocurred while addToCart data : ', error);
+          console.log('Error occurred while addToCart data : ', error);
         });
   }
 
-  public deleteOneCartItem(bookId: number) {
+  public deleteOneCartItem(bookId: any) {
     this.cartService.deleteOneCartItem(this.userId, bookId)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         result => {
-          this.subscriptionService.cartItemcount$.next(result);
+          this.subscriptionService.cartItemcount$.next(+result);
           this.snackBarService.showSnackBar('One item removed from cart');
           this.getShoppingCartItems();
         }, error => {
@@ -100,7 +100,7 @@ export class ShoppingcartComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
         result => {
-          this.subscriptionService.cartItemcount$.next(result);
+          this.subscriptionService.cartItemcount$.next(+result);
           this.snackBarService.showSnackBar('Cart cleared!!!');
           this.getShoppingCartItems();
         }, error => {
