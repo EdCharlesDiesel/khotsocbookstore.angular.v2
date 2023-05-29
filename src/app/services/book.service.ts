@@ -10,13 +10,15 @@ import {environment} from "../../environments/environment";
 })
 export class BookService {
 
-  baseURL = environment.baseURL + "books";
+  baseURL = environment.baseURL + "book";
 
   constructor(private http: HttpClient) { }
 
   categories$ = this.http.get<Categories[]>(this.baseURL + 'GetCategoriesList').pipe(shareReplay(1));
 
+
   books$ = this.getAllBooks().pipe(shareReplay(1));
+
 
   getAllBooks() {
     return this.http.get<Book[]>(this.baseURL);

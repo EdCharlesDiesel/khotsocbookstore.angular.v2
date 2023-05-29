@@ -3,12 +3,22 @@ import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { SubscriptionService } from './subscription.service';
+import {environment} from "../../environments/environment";
+import {BehaviorSubject, Observable} from "rxjs";
 
+export interface ApplicationUser {
+  accessToken: string;
+  expiresIn: Date;
+  username: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+
+
   oldUserId;
+  baseURL = environment.baseURL;
   constructor(
     private http: HttpClient,
     private subscriptionService: SubscriptionService) {
@@ -16,7 +26,7 @@ export class AuthenticationService {
   }
 
   public login(user: User) : any{
-    return this.http.post<any>('https://localhost:5000/api/login', user)
+    return this.http.post<any>(this.baseURL + 'Authentication/login', user)
       .pipe(map(response => {
         if (response && response.token) {
           this.oldUserId = JSON.parse(localStorage.getItem('userId') || '{}');

@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  baseURL: string;
+  baseURL= environment.baseURL + 'users'
 
   constructor(private http: HttpClient) {
-    this.baseURL = 'https://localhost:5000/api/user/';
   }
 
   // registerUser(userdetails: any,password: any) {
   //   return this.http.post(this.baseURL, userdetails + password);
   // }
 
-    registerUser(userdetails: any) {
+  registerUser(userdetails: any) {
     return this.http.post(this.baseURL, userdetails);
    }
 

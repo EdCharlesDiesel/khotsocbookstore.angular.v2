@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BookService } from 'src/app/services/book.service';
 import { ActivatedRoute } from '@angular/router';
-import { EMPTY, Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import {EMPTY, Observable, pipe} from 'rxjs';
+import {catchError, tap} from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 
@@ -14,7 +14,7 @@ import { SubscriptionService } from 'src/app/services/subscription.service';
 })
 export class BookDetailsComponent implements OnInit {
 
-  bookId = 0;
+  id :any;
   BookDetails$: Observable<Book>= new Observable<Book>();
   userData$: Observable<User>= new Observable<User>()
 
@@ -22,27 +22,34 @@ export class BookDetailsComponent implements OnInit {
     private bookService: BookService,
     private route: ActivatedRoute,
     private subscriptionService: SubscriptionService) {
-    //this.bookId = this.route.snapshot.paramMap.get('id'); this.userId = JSON.parse(localStorage.getItem('userId') || '{}');
-    this.bookId = JSON.parse(this.route.snapshot.paramMap.get('id') || '{}')
+    this.id = this.route.snapshot.paramMap.get('id');
+    //this.userId = JSON.parse(localStorage.getItem('userId') || '{}');
+    //this.id = JSON.parse(this.route.snapshot.paramMap.get('id') || '{}')
   }
 
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        this.bookId = +params['id'];
-        this.getBookDetails();
+       this.id = params['id'];
+        this.getBookDetails(this.id);
       }
     );
     this.userData$ = this.subscriptionService.userData;
   }
 
- public getBookDetails() {
+ public async  getBookDetails( id: string) {
+    debugger
     //TODO need to fix this
-    //this.BookDetails$ = this.bookService.getBookById(this.bookId);
-      // .pipe(
-      //   catchError(error => {
-      //     console.log('Error ocurred while fetching book data : ', error);
-      //     return EMPTY;
-      //   }));
+  await this.bookService.getBookById(id)
+   .pipe(tap((x)=>console.log('This is the value of book',x)),
+    catchError(error => {
+       console.log('Error ocurred while fetching book data : ', error);
+       return EMPTY;
+     })).subscribe( {
+      next(x){
+        console.log('This is the value of book',x)
+
+      }
+    });
   }
 }

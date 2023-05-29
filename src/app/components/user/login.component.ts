@@ -15,7 +15,6 @@ import { Subject } from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-
   showPassword = true;
   userId;
   private unsubscribe$ = new Subject<void>();
