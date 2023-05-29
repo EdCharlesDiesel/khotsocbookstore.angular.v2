@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BookService } from 'src/app/services/book.service';
-import { map } from 'rxjs/operators';
 import { Book } from 'src/app/models/book';
 
 @Component({
@@ -13,9 +12,9 @@ export class PriceFilterComponent implements OnInit {
   @Output()
   priceValue = new EventEmitter<number>(true);
 
-  max: number =0;
-  min: number=0;
-  value: number=0;
+  max: number | undefined;
+  min: number | undefined;
+  value: number| undefined;
   step = 100;
   thumbLabel = true;
 
@@ -46,14 +45,14 @@ export class PriceFilterComponent implements OnInit {
   }
 
   public setMinValue(book: Book[]) {
-    this.min = book.reduce((prev, curr) => {
-      return prev.purchasePrice < curr.purchasePrice ? prev : curr;
-    }).purchasePrice;
+    this.min = book.reduce((prev: any, curr:any) => {
+      return prev?.retailPrice < curr?.retailPrice ? prev : curr;
+    }).retailPrice;
   }
 
   public setMaxValue(book: Book[]) {
-    this.value = this.max = book.reduce((prev, curr) => {
-      return prev.purchasePrice > curr.purchasePrice ? prev : curr;
-    }).purchasePrice;
+    this.value = this.max = book.reduce((prev: any, curr: any) => {
+      return prev.retailPrice > curr.retailPrice ? prev : curr;
+    }).retailPrice;
   }
 }

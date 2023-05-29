@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { ShoppingCart } from './shoppingcart';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class CartService {
     this.baseURL = 'https://localhost:5000/api/shoppingcart/';
   }
 
-  addBookToCart(userId: number, bookId: number) {
+  addBookToCart(userId: number, bookId: any) {
     return this.http.post<number>(this.baseURL + `addToCart/${userId}/${bookId}`, {});
   }
 

@@ -40,12 +40,12 @@
         <tbody>
           <tr *ngFor="let item of bookSubscriptionItems">
             <mat-card-content class="mat-elevation-z2">
-              <td> <img matTooltip={{item.name}} matTooltipPosition="after" src="asserts/Upload/{{item.coverFileName}}">
+              <td> <img matTooltip={{item.title}} matTooltipPosition="after" src="asserts/Upload/{{item.coverFileName}}">
               </td>
-              <td><a [routerLink]="['/books/details/',item.bookId]">{{item.name}}</a></td>
-              <td>{{ item.purchasePrice | currency : 'ZAR ' }}</td>
+              <td><a [routerLink]="['/books/details/',item.id]">{{item.title}}</a></td>
+              <td>{{ item.retailPrice | currency : 'ZAR ' }}</td>
               <td>
-                <app-addtocart [bookId]="item.bookId"></app-addtocart>
+                <app-addtocart [bookId]="item.id"></app-addtocart>
               </td>
               <td>
                 <!-- <app-addtobookSubscription [bookId]="item.bookId" [showButton]="true"></app-addtobookSubscription> -->

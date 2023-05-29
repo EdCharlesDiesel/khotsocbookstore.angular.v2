@@ -17,7 +17,7 @@ export class WishlistService {
     this.baseURL = 'https://localhost:5000/api/Wishlist/';
   }
 
-  toggleWishlistItem(userId: number, bookId: number) {
+  toggleWishlistItem(userId: number, bookId: any) {
     return this.http.post<Book[]>(this.baseURL + `ToggleWishlist/${userId}/${bookId}`, {})
       .pipe(map((response: Book[]) => {
         this.setWishlist(response);

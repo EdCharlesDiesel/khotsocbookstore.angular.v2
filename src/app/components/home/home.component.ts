@@ -51,16 +51,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public filterBookData(): any {
-    const filteredData = this.filteredProducts.filter(b => b.purchasePrice <= this.priceRange).slice();
+    const filteredData = this.filteredProducts.filter(b => b.retailPrice <= this.priceRange).slice();
 
-    if (this.category) {
-      this.books = filteredData.filter(b => b.category.toLowerCase() === this.category.toLowerCase());
-    } else if (this.searchItem) {
-      this.books = filteredData.filter(b => b.name.toLowerCase().indexOf(this.searchItem) !== -1
-        || b.author.toLowerCase().indexOf(this.searchItem) !== -1);
-    } else {
-      this.books = filteredData;
-    }
+    // if (this.category) {
+    //   this.books = filteredData.filter(b => b.category.toLowerCase() === this.category.toLowerCase());
+    // } else if (this.searchItem) {
+    //   this.books = filteredData.filter(b => b.name.toLowerCase().indexOf(this.searchItem) !== -1
+    //     || b.author.toLowerCase().indexOf(this.searchItem) !== -1);
+    // } else {
+    //   this.books = filteredData;
+    // }
+
+    this.books = filteredData;
     this.isLoading = false;
   }
 

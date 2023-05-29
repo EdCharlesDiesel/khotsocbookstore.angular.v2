@@ -1,9 +1,10 @@
 export class Book {
-    bookId: number = 0;
-    name: string = '';
-    text: string = '';
-    author: string = '';
-    category: string = '';
-    purchasePrice: number=0;
-    coverFileName: string = '';
+  id?: string;
+  title?: string;
+  publishedDate?: Date;
+  retailPrice?: any;
+  coverFileName?: string;
+  cost?: number;
+  userId?: string;
+
 }
